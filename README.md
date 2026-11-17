@@ -12,6 +12,8 @@ Protocol: reads `MAKEFUN_ENV_URL`, plays each game via `POST /game` and `POST /m
 
 Local practice trials (kit env server, 3 draws × 6 games, scored from the `outcome` field with the kit's official scorer): **13.0 points / 18 games, mean Elo 1,521** — trial-0 3.5 (Elo 1,364), trial-1 4.5 (Elo 1,545), trial-2 5.0 (Elo 1,654). That beats the submitted v4's 9.0 points / 18 (mean Elo 1,278) by 4.0 points. v4's live server grade is Elo 1,364 (3W 1D 2L on trial-0's instance), reproduced byte-for-byte locally — there is no server-vs-local gap; the earlier "1,545" figure for v4 was a misread of the `result` field (White's perspective) instead of `outcome`. Perft verified on startpos, Kiwipete and an en-passant/castling position (startpos depth 4 = 197,281 exact).
 
+Stockfish bench (40 positions, Stockfish depth 16): v6 finds the best move in 19/40 positions at 2,385cp average error, vs v5's 18/40 at 2,522cp — one more position solved and lower error, with the rook-on-7th term itself worth about nothing on the bench (2,385cp vs 2,393cp without it, within noise).
+
 ## Run it
 
 ```sh
